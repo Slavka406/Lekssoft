@@ -1,4 +1,9 @@
-import {DashboardScreen, IconScreen, TypographyScreen} from '../screens'
+import {
+  DashboardScreen,
+  DividerScreen,
+  IconScreen,
+  TypographyScreen,
+} from '../screens'
 
 import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
@@ -14,6 +19,7 @@ const AppStackNavigator = () => {
       <Stack.Screen name={'DASHBOARD'} component={DashboardScreen} />
       <Stack.Screen name={'TYPOGRAPHY'} component={TypographyScreen} />
       <Stack.Screen name={'ICON'} component={IconScreen} />
+      <Stack.Screen name={'DIVIDER'} component={DividerScreen} />
     </Stack.Navigator>
   )
 }

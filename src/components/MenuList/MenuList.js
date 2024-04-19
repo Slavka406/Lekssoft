@@ -1,16 +1,16 @@
-// import { Divider, Text } from 'native-base'
+import {
+  AlertsAndFeedbackAlertTriangle,
+  ArrowsArrowNarrowRight,
+} from '../../constants/assets'
 import React, {Fragment} from 'react'
 import {TouchableOpacity, View} from 'react-native'
 
-import {ArrowsArrowNarrowRight} from '../../constants/assets'
 import Divider from '../Divider'
-// import { ArrowsArrowNarrowRight } from '../../../__constants__/assets'
-import FastImage from '@qonsoll/react-native-fast-image'
+import Icon from '../Icon'
 import PropTypes from 'prop-types'
 import {Text} from '../Typography'
+import colors from '../../styles/colors'
 import dynamicStyles from './MenuList.styles'
-
-// import { AlertsAndFeedbackAlertTriangle } from '~/__constants__/assets'
 
 /**
  * It returns a list of menu items.
@@ -39,29 +39,24 @@ const MenuList = props => {
                     styles.iconContainer,
                     {backgroundColor: item.iconBackgroundColor},
                   ]}>
-                  <FastImage
-                    source={item.icon}
-                    style={styles.image}
-                    tintColor={styles.tintColor}
-                  />
+                  <Icon icon={item.icon} color={colors.white.DEFAULT} />
                 </View>
               )}
               <Text numberOfLines={1}>{item.text}</Text>
               {item?.isAdditionalButton && (
-                <FastImage
-                  source={AlertsAndFeedbackAlertTriangle}
-                  style={{width: 20, height: 20, marginLeft: 6}}
-                  tintColor={'rgb(250, 173, 20)'}
+                <Icon
+                  icon={AlertsAndFeedbackAlertTriangle}
+                  color={colors.warning.DEFAULT}
+                  cn="ml-2"
                 />
               )}
             </View>
             <View flexDirection="row">
-              <Text color="textCaptionColor">{item.description}</Text>
+              <Text cn="color-gray-lighten-5">{item.description}</Text>
               {!!item.isArrowShow && (
-                <FastImage
-                  source={ArrowsArrowNarrowRight}
-                  style={styles.image}
-                  tintColor={styles.icon.color}
+                <Icon
+                  icon={ArrowsArrowNarrowRight}
+                  color={colors.gray['lighten-5']}
                 />
               )}
               {!!item?.rightItem && <View>{item.rightItem()}</View>}

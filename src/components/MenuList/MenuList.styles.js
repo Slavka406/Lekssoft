@@ -29,10 +29,6 @@ const dynamicStyles = ({dividerMargin = 0, dividerWidth} = {}) => {
       alignItems: 'center',
       marginRight: 16,
     },
-    icon: {
-      size: 30,
-      color: 'gray',
-    },
     image: {width: 20, height: 20},
     tintColor: 'white',
   })

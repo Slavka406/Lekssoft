@@ -16,7 +16,6 @@ export default function Divider({orientation = 'horizontal', cn = ''}) {
 }
 
 Divider.propTypes = {
-  level: PropTypes.oneOf([1, 2]),
-  children: PropTypes.node.isRequired,
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
   cn: PropTypes.string,
 }

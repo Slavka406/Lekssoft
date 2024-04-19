@@ -1,5 +1,6 @@
 import FastImage from '@qonsoll/react-native-fast-image'
 import PropTypes from 'prop-types'
+import {View} from 'react-native'
 
 const styles = {
   levels: {
@@ -15,13 +16,17 @@ const styles = {
   },
 }
 
-export default function Icon({icon, level = 1, color}) {
+export default function Icon({icon, level = 1, color, cn}) {
   return (
-    <FastImage source={icon} style={styles.levels[level]} tintColor={color} />
+    <View className={cn}>
+      <FastImage source={icon} style={styles.levels[level]} tintColor={color} />
+    </View>
   )
 }
 
 Icon.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+  color: PropTypes.string,
+  cn: PropTypes.string,
 }
