@@ -18,7 +18,6 @@ import {SafeAreaView, ScrollView, View} from 'react-native'
 
 import Header from '../../components/Header'
 import MenuList from '../../components/MenuList'
-import {Title} from '../../components'
 import {useNavigation} from '@react-navigation/native'
 
 const DashboardScreen = () => {
@@ -77,7 +76,7 @@ const DashboardScreen = () => {
       icon: ImagesImage01,
       text: 'Icon',
       iconBackgroundColor: '#0b0a0e73',
-      action: () => {},
+      action: () => navigation.navigate('ICON'),
       isArrowShow: true,
       textColor: 'grey-4',
     },
