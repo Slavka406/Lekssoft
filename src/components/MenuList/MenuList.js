@@ -2,7 +2,6 @@ import {
   AlertsAndFeedbackAlertTriangle,
   ArrowsArrowNarrowRight,
 } from '../../constants/assets'
-import React, {Fragment} from 'react'
 import {TouchableOpacity, View} from 'react-native'
 
 import Divider from '../Divider'
@@ -19,15 +18,12 @@ import dynamicStyles from './MenuList.styles'
  * @param dividerMarginLeft - The margin left of the divider
  * @returns A function that takes in data, dividerWidth, and dividerMarginLeft as arguments.
  */
-const MenuList = props => {
-  const {data, dividerWidth, dividerMarginLeft} = props
-
-  const dividerMargin = dividerMarginLeft || 4
-  const styles = dynamicStyles({dividerMargin, dividerWidth})
+const MenuList = ({data}) => {
+  const styles = dynamicStyles()
 
   return data
     ? data.map((item, index) => (
-        <Fragment key={index}>
+        <View key={index}>
           <TouchableOpacity
             activeOpacity={item?.action ? 0.2 : 1}
             onPress={item?.action}
@@ -42,7 +38,9 @@ const MenuList = props => {
                   <Icon icon={item.icon} color={colors.white.DEFAULT} />
                 </View>
               )}
+
               <Text numberOfLines={1}>{item.text}</Text>
+
               {item?.isAdditionalButton && (
                 <Icon
                   icon={AlertsAndFeedbackAlertTriangle}
@@ -51,6 +49,7 @@ const MenuList = props => {
                 />
               )}
             </View>
+
             <View flexDirection="row">
               <Text cn="color-gray-lighten-5">{item.description}</Text>
               {!!item.isArrowShow && (
@@ -62,23 +61,17 @@ const MenuList = props => {
               {!!item?.rightItem && <View>{item.rightItem()}</View>}
             </View>
           </TouchableOpacity>
-          {data?.length - 1 !== index && (
-            <Divider cn="pl-3" />
 
-            // <Divider
-            //   width={styles.divider.width}
-            //   ml={styles.divider.marginLeft}
-            // />
-          )}
-        </Fragment>
+          <View className="pl-[62]">
+            {data?.length - 1 !== index && <Divider cn="pl-3" />}
+          </View>
+        </View>
       ))
     : null
 }
 
 MenuList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  dividerWidth: PropTypes.number,
-  dividerMarginLeft: PropTypes.number,
 }
 
 export default MenuList

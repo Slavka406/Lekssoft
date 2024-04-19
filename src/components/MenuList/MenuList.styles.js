@@ -1,14 +1,7 @@
 import {StyleSheet} from 'react-native'
 
-const dynamicStyles = ({dividerMargin = 0, dividerWidth} = {}) => {
-  const containerMaxWidth = 120
-  const dividerWidthComputed = containerMaxWidth - 2 ** dividerMargin
-
+const dynamicStyles = () => {
   return StyleSheet.create({
-    divider: {
-      marginLeft: dividerMargin,
-      width: dividerWidth || dividerWidthComputed,
-    },
     item: {
       height: 60,
       flexDirection: 'row',

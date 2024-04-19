@@ -3,19 +3,32 @@ import {View} from 'react-native'
 import clsx from 'clsx'
 
 const styles = {
-  orientations: {
-    horizontal: 'w-full h-[1] bg-gray-lighten-7',
-    vertical: 'h-full w-[1] bg-gray-lighten-7',
+  variants: {
+    default: 'bg-white',
+  },
+  shapes: {
+    default: 'rounded-xl',
   },
 }
 
-export default function Card({orientation = 'horizontal', cn = ''}) {
-  const classes = clsx(styles.orientations[orientation], cn)
+export default function Card({
+  variant = 'default',
+  shape = 'default',
+  children,
+  cn = '',
+}) {
+  const classes = clsx(
+    styles.variants[variant],
+    styles.shapes[shape],
+    'overflow-hidden',
+    cn,
+  )
 
-  return <View className={classes} />
+  return <View className={classes}>{children}</View>
 }
 
 Card.propTypes = {
-  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
+  variant: PropTypes.oneOf(['default']),
+  shape: PropTypes.oneOf(['default']),
   cn: PropTypes.string,
 }

@@ -1,4 +1,5 @@
 import {
+  CardScreen,
   DashboardScreen,
   DividerScreen,
   IconScreen,
@@ -20,6 +21,7 @@ const AppStackNavigator = () => {
       <Stack.Screen name={'TYPOGRAPHY'} component={TypographyScreen} />
       <Stack.Screen name={'ICON'} component={IconScreen} />
       <Stack.Screen name={'DIVIDER'} component={DividerScreen} />
+      <Stack.Screen name={'CARD'} component={CardScreen} />
     </Stack.Navigator>
   )
 }
